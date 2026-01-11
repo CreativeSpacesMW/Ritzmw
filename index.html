@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Ritz Attorneys at Law | Malawi's Largest Law Firm</title>
     <meta name="description" content="Ritz Attorneys at Law - Malawi's largest law firm specializing in the confluence of law, technology, and finance. Technical excellence for a modern world.">
     
@@ -13,13 +13,6 @@
     <meta property="og:title" content="Ritz Attorneys at Law | Technical Excellence">
     <meta property="og:description" content="Malawi's premier law firm at the intersection of law, technology, and finance. Member of Alliott Global Alliance.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.ritzattorneys.com/">
-    <meta property="twitter:title" content="Ritz Attorneys at Law | Technical Excellence">
-    <meta property="twitter:description" content="Malawi's premier law firm at the intersection of law, technology, and finance.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,34 +32,37 @@
         .border-ritz-gold { border-color: #C5A059; }
         .bg-ritz-gold { background-color: #C5A059; }
         
-        /* Smooth fade-in for page transitions */
-        .page-fade {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* Custom selection color */
         ::selection {
             background-color: #C5A059;
             color: #0F172A;
         }
+
+        /* Prevent layout shift on mobile */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 <script type="importmap">
 {
   "imports": {
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
     "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
     <div id="root"></div>
+    <!-- Standard Module Entry Point for Vercel/Vite -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

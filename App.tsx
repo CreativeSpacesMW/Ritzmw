@@ -39,12 +39,23 @@ const Navbar = () => {
   useEffect(() => {
     // Automatically close mobile menu on route change
     setIsOpen(false);
-    window.scrollTo(0, 0);
+    if (isOpen) {
+      document.body.style.overflow = 'unset';
+    }
   }, [location.pathname]);
+
+  // Handle body scroll locking when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
 
   return (
     <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
-      scrolled ? 'bg-slate-950/90 backdrop-blur-xl py-2 border-b border-slate-800/50 shadow-2xl' : 'bg-transparent py-4'
+      scrolled ? 'bg-slate-950/95 backdrop-blur-xl py-2 border-b border-slate-800/50 shadow-2xl' : 'bg-transparent py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
@@ -92,7 +103,7 @@ const Navbar = () => {
           <div className="lg:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="p-2 text-white bg-slate-900/50 backdrop-blur-md rounded-md border border-slate-700/50 focus:outline-none"
+              className="p-2 text-white bg-slate-900/50 backdrop-blur-md rounded-md border border-slate-700/50 focus:outline-none transition-transform active:scale-90"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -102,9 +113,24 @@ const Navbar = () => {
       </div>
 
       {/* Full-screen Mobile Menu */}
-      <div className={`lg:hidden fixed inset-0 bg-slate-950 z-[90] transition-all duration-700 ease-[cubic-bezier(0.16, 1, 0.3, 1)] ${
+      <div className={`lg:hidden fixed inset-0 bg-slate-950 z-[110] transition-all duration-700 ease-[cubic-bezier(0.16, 1, 0.3, 1)] ${
         isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
       }`}>
+        {/* Header inside mobile menu to allow closing */}
+        <div className="absolute top-0 w-full px-4 sm:px-6 py-6 flex justify-between items-center h-24">
+            <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center space-x-2">
+                <div className="w-9 h-9 bg-slate-900 border border-ritz-gold flex items-center justify-center transform rotate-45">
+                    <span className="text-ritz-gold font-serif font-bold text-lg -rotate-45">R</span>
+                </div>
+            </Link>
+            <button 
+              onClick={() => setIsOpen(false)} 
+              className="p-2 text-white"
+            >
+              <X size={32} />
+            </button>
+        </div>
+
         <div className="flex flex-col h-full justify-center px-8 sm:px-12 space-y-6">
           <div className="text-ritz-gold text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">Navigation Menu</div>
           {navLinks.map((link, idx) => (
@@ -127,7 +153,7 @@ const Navbar = () => {
           <div className={`pt-12 transform transition-all duration-700 delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
             <Link
               to="/contact"
-              className="inline-block bg-ritz-gold text-slate-950 px-10 py-5 text-center font-black uppercase tracking-[0.2em] rounded-sm text-xs shadow-2xl active:scale-95"
+              className="inline-block bg-ritz-gold text-slate-950 px-10 py-5 text-center font-black uppercase tracking-[0.2em] rounded-sm text-xs shadow-2xl active:scale-95 w-full sm:w-auto"
             >
               Request Consultation
             </Link>
