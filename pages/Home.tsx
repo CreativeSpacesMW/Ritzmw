@@ -1,119 +1,135 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Scale, ShieldCheck, Zap, TrendingUp, Globe2, Building } from 'lucide-react';
+import { ChevronRight, Scale, ShieldCheck, Zap, TrendingUp, Building, ArrowDown } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
     <div className="overflow-hidden bg-white">
-      {/* Hero Section - Using Solid Slate background to ensure text visibility */}
-      <section className="relative min-h-[85vh] md:h-[90vh] flex items-center bg-slate-950 overflow-hidden py-16 md:py-0">
-        {/* Background Overlay Graphics - Darkened for better contrast */}
-        <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute top-20 left-10 w-48 md:w-96 h-48 md:h-96 bg-ritz-gold rounded-full filter blur-[80px] md:blur-[120px]"></div>
-          <div className="absolute bottom-10 right-10 w-40 md:w-80 h-40 md:h-80 bg-blue-900 rounded-full filter blur-[100px] md:blur-[150px]"></div>
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-multiply"></div>
+      {/* Hero Section - Executive Visuals */}
+      <section className="relative min-h-screen flex items-center bg-slate-950 overflow-hidden">
+        {/* Background Overlay Graphics */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-ritz-gold/10 rounded-full filter blur-[120px] animate-pulse"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-multiply opacity-40 scale-105 transition-transform duration-[10s]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950"></div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center space-x-2 bg-ritz-gold/20 border border-ritz-gold/50 px-4 py-1.5 rounded-full mb-8">
-              <span className="w-2.5 h-2.5 bg-ritz-gold rounded-full animate-pulse shadow-[0_0_8px_#C5A059]"></span>
-              <span className="text-ritz-gold text-xs font-black uppercase tracking-[0.2em]">Malawi's Market Leader</span>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+          <div className="max-w-5xl">
+            <div className="inline-flex items-center space-x-3 bg-ritz-gold/10 border border-ritz-gold/30 px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 bg-ritz-gold rounded-full animate-ping"></span>
+              <span className="text-ritz-gold text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">Malawi's Market Vanguard</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-8 leading-[1.05] tracking-tight">
-              At the <span className="text-ritz-gold italic">Confluence</span> of Law, Tech & Finance.
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-8 leading-[0.95] tracking-tighter">
+              Law. <span className="text-ritz-gold">Tech.</span> <br />
+              <span className="italic font-serif font-light text-slate-400">Finance.</span>
             </h1>
-            <p className="text-lg md:text-2xl text-slate-200 mb-12 max-w-2xl leading-relaxed font-medium">
-              Ritz Attorneys at Law is the nation's premier practice, bridging heritage legal excellence with high-speed digital architecture.
+            <p className="text-lg md:text-2xl lg:text-3xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light font-serif italic">
+              "Technical excellence at the confluence of innovation and heritage."
             </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link to="/contact" className="bg-ritz-gold text-slate-950 px-8 py-5 text-lg font-black rounded-sm text-center hover:bg-white hover:scale-105 transition-all shadow-2xl">
-                Digital Consultation
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <Link to="/contact" className="w-full sm:w-auto bg-ritz-gold text-slate-950 px-10 py-5 text-xs font-black uppercase tracking-[0.2em] rounded-sm text-center hover:bg-white transition-all shadow-xl">
+                Consultation
               </Link>
-              <Link to="/practice-areas" className="border-2 border-white/40 text-white px-8 py-5 text-lg font-black rounded-sm text-center hover:bg-white hover:text-slate-950 transition-all flex items-center justify-center group">
-                Explore Expertise <ChevronRight size={24} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              <Link to="/practice-areas" className="w-full sm:w-auto border border-white/20 text-white px-10 py-5 text-xs font-black uppercase tracking-[0.2em] rounded-sm text-center hover:bg-white/10 transition-all flex items-center justify-center group">
+                Expertise <ChevronRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-40">
+           <span className="text-[8px] text-white uppercase tracking-[0.4em] mb-2">Explore</span>
+           <ArrowDown size={16} className="text-ritz-gold" />
+        </div>
       </section>
 
-      {/* Key Stats Bar - Solid White with Dark Text */}
-      <section className="bg-white border-b-4 border-ritz-gold py-10 md:py-16 relative z-20 -mt-10 md:-mt-14 mx-4 md:mx-auto max-w-6xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm">
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-slate-100">
-          <div className="px-10 py-6 text-center group">
-            <div className="text-4xl md:text-6xl font-serif font-black text-slate-950 mb-2 transition-colors">15+</div>
-            <div className="text-[11px] uppercase tracking-[0.25em] text-slate-600 font-black">Specialized Lawyers</div>
-          </div>
-          <div className="px-10 py-6 text-center group">
-            <div className="text-4xl md:text-6xl font-serif font-black text-slate-950 mb-2 transition-colors">68%</div>
-            <div className="text-[11px] uppercase tracking-[0.25em] text-slate-600 font-black">Banking Market Share</div>
-          </div>
-          <div className="px-10 py-6 text-center group">
-            <div className="text-4xl md:text-6xl font-serif font-black text-slate-950 mb-2 transition-colors">100+</div>
-            <div className="text-[11px] uppercase tracking-[0.25em] text-slate-600 font-black">AGA Partner Countries</div>
+      {/* Modern Stats Grid */}
+      <section className="relative z-20 -mt-10 md:-mt-20 px-4">
+        <div className="max-w-6xl mx-auto bg-white shadow-[0_30px_100px_rgba(0,0,0,0.1)] rounded-sm overflow-hidden border border-slate-100">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            {[
+              { label: "Headcount", val: "15", suffix: "+", sub: "Specialized Attorneys" },
+              { label: "Authority", val: "68", suffix: "%", sub: "Banking Market Share" },
+              { label: "Reach", val: "AGA", suffix: "", sub: "Global Partner Network" }
+            ].map((stat, i) => (
+              <div key={i} className="p-8 md:p-12 text-center hover:bg-slate-50 transition-colors">
+                <div className="text-ritz-gold text-[9px] font-black uppercase tracking-[0.4em] mb-3">{stat.label}</div>
+                <div className="text-5xl md:text-6xl font-serif font-bold text-slate-950 mb-1">
+                  {stat.val}<span className="text-ritz-gold">{stat.suffix}</span>
+                </div>
+                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">{stat.sub}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Strategic Genesis - High legibility layout */}
-      <section className="py-20 md:py-32 bg-white">
+      {/* Strategic Genesis */}
+      <section className="py-20 md:py-32 lg:py-48 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
-            <div className="md:w-1/2">
-              <h2 className="text-4xl md:text-6xl font-bold mb-10 text-slate-950 leading-tight tracking-tight">Strategic Genesis</h2>
-              <div className="space-y-8 text-slate-800 leading-relaxed text-lg md:text-xl font-medium">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+            <div className="lg:w-1/2 relative">
+               <div className="absolute -top-10 -left-10 text-[120px] md:text-[200px] font-serif font-black text-slate-50 leading-none select-none -z-10">2012</div>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-slate-950 leading-[1.1] tracking-tighter">
+                A Radical <br /><span className="text-ritz-gold">Genesis.</span>
+              </h2>
+              <div className="space-y-6 text-slate-600 leading-relaxed text-lg font-light">
                 <p>
-                  Established in 2012, Ritz Attorneys at Law emerged with a radical vision: to reconstruct the Malawian legal landscape for the 21st century. Our ascent was driven by a commitment to multidisciplinary integration.
+                  Established in 2012, Ritz Attorneys at Law emerged with a clear objective: to reconstruct the Malawian legal landscape for a digitized global economy.
                 </p>
-                <p>
-                  We recognized early that the traditional boundaries between legal advice, financial architecture, and technological shifts were dissolving. 
+                <p className="font-medium text-slate-900">
+                  We recognized that the boundaries between legal advice, financial architecture, and technology were vanishing. 
                 </p>
-                <div className="flex items-start space-x-5 p-8 md:p-10 bg-slate-950 text-white border-l-8 border-ritz-gold shadow-xl">
-                  <p className="text-lg md:text-2xl font-serif italic text-slate-200">
-                    "Our philosophy is speed without compromise. We understand that in the modern global economy, a legal solution is only as valuable as the time it saves for the investor."
-                  </p>
+                <div className="pt-8 flex items-center space-x-4">
+                  <div className="w-12 h-px bg-ritz-gold"></div>
+                  <Link to="/about" className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-950 hover:text-ritz-gold transition-colors flex items-center">
+                    Full History <ChevronRight size={14} className="ml-1" />
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="md:w-1/2 relative w-full">
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=400&h=500" className="rounded-sm shadow-2xl mt-10 md:mt-16 w-full grayscale hover:grayscale-0 transition-all duration-700" alt="Office Professional" />
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400&h=500" className="rounded-sm shadow-2xl w-full border-4 border-white" alt="Modern Architecture" />
-              </div>
-              <div className="absolute -bottom-8 -right-4 bg-ritz-gold p-6 md:p-10 text-slate-950 shadow-2xl">
-                <div className="text-4xl md:text-6xl font-serif font-black mb-1">2012</div>
-                <div className="text-[12px] uppercase tracking-[0.2em] font-black opacity-90">Foundation Year</div>
+            <div className="lg:w-1/2 w-full">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-ritz-gold transform translate-x-4 translate-y-4 -z-10 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" className="w-full h-[400px] md:h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" alt="Modern Architecture" />
+                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-slate-950 text-white p-6 md:p-10 shadow-2xl">
+                   <Building size={32} className="text-ritz-gold mb-4 md:mb-6" />
+                   <h4 className="text-xl md:text-2xl font-bold mb-1">Technical HQ</h4>
+                   <p className="text-slate-400 text-[9px] font-bold uppercase tracking-widest">Keza Office Park, Blantyre</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Triple Confluence - Solid backgrounds for card details */}
-      <section className="py-20 md:py-32 bg-slate-50 border-t border-slate-100">
-        <div className="container mx-auto px-4">
+      {/* Practice Pillars */}
+      <section className="py-20 md:py-32 bg-slate-50 border-y border-slate-100 relative">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-950 tracking-tight">The Triple Confluence</h2>
-            <div className="w-24 md:w-32 h-2 bg-ritz-gold mx-auto"></div>
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 text-slate-950 tracking-tighter">The Practice Pillars</h2>
+            <div className="w-16 h-1 bg-ritz-gold mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <div className="bg-white p-10 md:p-14 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b-4 border-transparent hover:border-ritz-gold transition-all group hover:-translate-y-2">
-              <Scale className="text-ritz-gold mb-8 group-hover:scale-110 transition-transform" size={56} strokeWidth={1.5} />
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-950">Law</h3>
-              <p className="text-slate-700 text-lg leading-relaxed font-medium">Deep technical proficiency and regional authority across all branches of civil and commercial law.</p>
-            </div>
-            <div className="bg-white p-10 md:p-14 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b-4 border-transparent hover:border-ritz-gold transition-all group hover:-translate-y-2">
-              <Zap className="text-ritz-gold mb-8 group-hover:scale-110 transition-transform" size={56} strokeWidth={1.5} />
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-950">Technology</h3>
-              <p className="text-slate-700 text-lg leading-relaxed font-medium">Pioneering TMT and Fintech legal frameworks for digital payment systems and telecommunications.</p>
-            </div>
-            <div className="bg-white p-10 md:p-14 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b-4 border-transparent hover:border-ritz-gold transition-all group hover:-translate-y-2">
-              <TrendingUp className="text-ritz-gold mb-8 group-hover:scale-110 transition-transform" size={56} strokeWidth={1.5} />
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-950">Finance</h3>
-              <p className="text-slate-700 text-lg leading-relaxed font-medium">Premier choice for Malawi’s banking sector, handling 68% of the market share in trade finance.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { icon: <Scale size={40} />, title: "Law", desc: "Technical proficiency and regional authority in civil & commercial law.", label: "Foundational" },
+              { icon: <Zap size={40} />, title: "Technology", desc: "Pioneering TMT and Fintech legal frameworks for digital giants.", label: "Innovation" },
+              { icon: <TrendingUp size={40} />, title: "Finance", desc: "Market leader in trade finance architecture for the banking sector.", label: "Capital" }
+            ].map((pillar, i) => (
+              <div key={i} className="bg-white p-10 md:p-12 lg:p-14 border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 text-slate-50 text-6xl md:text-8xl font-black -z-0 group-hover:text-ritz-gold/5 transition-colors">{i+1}</div>
+                <div className="relative z-10">
+                  <div className="text-ritz-gold mb-8 transform group-hover:scale-110 transition-transform origin-left">{pillar.icon}</div>
+                  <div className="text-[9px] text-ritz-gold font-black uppercase tracking-[0.4em] mb-4">{pillar.label}</div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-950">{pillar.title}</h3>
+                  <p className="text-slate-500 text-base md:text-lg leading-relaxed">{pillar.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

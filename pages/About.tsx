@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { User, Shield, Award, Landmark } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { User, Shield, Award, Landmark, ChevronRight } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -28,81 +29,57 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section className="py-16 md:py-24">
+      {/* Philosophy Section */}
+      <section className="py-20 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">The Vanguard Leadership</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">Expertise that spans continents, specializing in the modern convergence of markets.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-16 md:mb-24">
-            {/* Lusungu Gondwe */}
-            <div className="group">
-              <div className="relative mb-6 overflow-hidden aspect-[4/5] bg-slate-100 rounded-sm">
-                <img src="https://picsum.photos/seed/lusungu/600/750" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" alt="Lusungu Gondwe" />
-                <div className="absolute inset-0 bg-ritz-gold/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900">Lusungu Gondwe</h3>
-              <div className="text-ritz-gold text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-4">Founder & Managing Partner</div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Specialist in Banking, Fintech, and Trade Finance. A market visionary who has steered Ritz to its current leadership position through strategic multidisciplinary integration.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-slate-100 text-[9px] md:text-[10px] px-2 py-1 rounded-full text-slate-600 uppercase font-semibold">Fintech</span>
-                <span className="bg-slate-100 text-[9px] md:text-[10px] px-2 py-1 rounded-full text-slate-600 uppercase font-semibold">Trade Finance</span>
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 text-slate-900">Our Digital Genesis</h2>
+              <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
+                <p>
+                  Founded in 2012, our inception was marked by a departure from traditional legal bureaucracy. We envisioned a firm that speaks the language of modern commerce: speed, technical precision, and technological integration.
+                </p>
+                <p>
+                  Today, Ritz is more than a law firm; it is a strategic consultancy that bridges the gap between African markets and global financial hubs.
+                </p>
               </div>
             </div>
-
-            {/* Chifundo Ngwira */}
-            <div className="group">
-              <div className="relative mb-6 overflow-hidden aspect-[4/5] bg-slate-100 rounded-sm">
-                <img src="https://picsum.photos/seed/chifundo/600/750" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" alt="Chifundo Ngwira" />
-                <div className="absolute inset-0 bg-ritz-gold/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="md:w-1/2 grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="bg-slate-50 p-8 border-b-4 border-ritz-gold">
+                   <Award size={32} className="text-ritz-gold mb-4" />
+                   <h4 className="font-bold mb-2">Excellence</h4>
+                   <p className="text-xs text-slate-500">Tier 1 rankings in commercial and corporate advisory.</p>
+                </div>
+                <div className="bg-slate-950 text-white p-8">
+                   <Shield size={32} className="text-ritz-gold mb-4" />
+                   <h4 className="font-bold mb-2">Integrity</h4>
+                   <p className="text-xs text-slate-400">Trusted by 68% of the Malawian banking sector.</p>
+                </div>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900">Chifundo Ngwira</h3>
-              <div className="text-ritz-gold text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-4">Senior Partner</div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                With over 25 years of senior legal experience, Chifundo leads the firm's Legal Compliance Audit Services (LCAS), ensuring institutional robustness for domestic and international clients.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-slate-100 text-[9px] md:text-[10px] px-2 py-1 rounded-full text-slate-600 uppercase font-semibold">Compliance</span>
-                <span className="bg-slate-100 text-[9px] md:text-[10px] px-2 py-1 rounded-full text-slate-600 uppercase font-semibold">LCAS</span>
-              </div>
-            </div>
-
-            {/* Lozindaba Mbvundula */}
-            <div className="group sm:col-span-2 lg:col-span-1 max-w-md mx-auto sm:max-w-none">
-              <div className="relative mb-6 overflow-hidden aspect-[4/5] bg-slate-100 rounded-sm">
-                <img src="https://picsum.photos/seed/lozindaba/600/750" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" alt="Lozindaba Mbvundula" />
-                <div className="absolute inset-0 bg-ritz-gold/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900">Lozindaba Mbvundula</h3>
-              <div className="text-ritz-gold text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-4">Partner</div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Expert in WTO frameworks, Competition Law, and Property Law. Lozindaba bridges the gap between domestic property acquisition and international trade regulations.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-slate-100 text-[9px] md:text-[10px] px-2 py-1 rounded-full text-slate-600 uppercase font-semibold">WTO</span>
-                <span className="bg-slate-100 text-[9px] md:text-[10px] px-2 py-1 rounded-full text-slate-600 uppercase font-semibold">Competition</span>
+              <div className="pt-12">
+                 <div className="bg-ritz-gold text-slate-950 p-8 h-full flex flex-col justify-center">
+                    <Landmark size={32} className="mb-4" />
+                    <h4 className="font-bold mb-2">Regional Power</h4>
+                    <p className="text-xs opacity-80">Dominant force in SADC region trade law.</p>
+                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="bg-slate-50 p-8 md:p-12 rounded-sm border-l-4 border-ritz-gold flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="md:w-2/3">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">The "Deep Bench"</h3>
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                Beyond our senior leadership, Ritz maintains an extensive associate body of high-performing legal professionals. This includes dual-qualified practitioners like <span className="font-semibold text-slate-900">Belinda Msungama</span> (admitted in both Malawi and New York), providing a direct bridge to global financial centers.
-              </p>
-            </div>
-            <div className="md:w-1/3 flex justify-center">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-serif font-bold text-ritz-gold mb-1 md:mb-2">15+</div>
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Core Legal Experts</div>
-              </div>
-            </div>
-          </div>
+      {/* Team CTA */}
+      <section className="py-24 bg-slate-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Built by Visionaries</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto mb-12">
+            Our success is built on the expertise of a diverse, high-performing team of legal professionals. 
+          </p>
+          <Link to="/team" className="inline-flex items-center space-x-3 bg-slate-950 text-white px-10 py-5 rounded-sm font-black hover:bg-ritz-gold hover:text-slate-950 transition-all group">
+            <span>Explore Our Full Team</span>
+            <ChevronRight className="group-hover:translate-x-2 transition-transform" />
+          </Link>
         </div>
       </section>
     </div>
