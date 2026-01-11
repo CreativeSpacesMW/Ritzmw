@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, ChevronRight, Scale, Globe, Building2, Briefcase, 
   MapPin, Phone, Mail, Clock, ShieldCheck, Zap, TrendingUp, Users 
@@ -37,10 +37,14 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // Automatically close mobile menu on route change
     setIsOpen(false);
-    document.body.style.overflow = 'unset';
+    if (isOpen) {
+      document.body.style.overflow = 'unset';
+    }
   }, [location.pathname]);
 
+  // Handle body scroll locking when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -108,9 +112,11 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Full-screen Mobile Menu */}
       <div className={`lg:hidden fixed inset-0 bg-slate-950 z-[110] transition-all duration-700 ease-[cubic-bezier(0.16, 1, 0.3, 1)] ${
         isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
       }`}>
+        {/* Header inside mobile menu to allow closing */}
         <div className="absolute top-0 w-full px-4 sm:px-6 py-6 flex justify-between items-center h-24">
             <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center space-x-2">
                 <div className="w-9 h-9 bg-slate-900 border border-ritz-gold flex items-center justify-center transform rotate-45">
@@ -174,9 +180,11 @@ const Footer = () => {
               "Technical Excellence at the Confluence of Law, Technology, and Finance."
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-9 h-9 rounded-full border border-slate-800 bg-slate-900/50 flex items-center justify-center hover:border-ritz-gold hover:text-ritz-gold transition-all">
-                <Globe size={16} />
-              </a>
+              {['Twitter', 'Linkedin', 'Globe'].map((icon, i) => (
+                <a key={i} href="#" className="w-9 h-9 rounded-full border border-slate-800 bg-slate-900/50 flex items-center justify-center hover:border-ritz-gold hover:text-ritz-gold transition-all">
+                  <Globe size={16} />
+                </a>
+              ))}
             </div>
           </div>
           
