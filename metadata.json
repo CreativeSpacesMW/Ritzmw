@@ -1,0 +1,7 @@
+{
+  "name": "Ritz Attorneys at Law",
+  "description": "The official digital platform for Malawi's largest law firm, specializing in the confluence of law, technology, and finance.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
