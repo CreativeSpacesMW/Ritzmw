@@ -8,9 +8,11 @@ import {
 } from 'lucide-react';
 import Home from './views/HomeContent';
 import About from './views/AboutContent';
+import PracticeAreas from './views/PracticeAreasContent';
 import Team from './views/TeamContent';
 import Litigation from './views/LitigationContent';
 import GlobalCSR from './views/GlobalCSRContent';
+import Contact from './views/ContactContent';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +26,7 @@ const Navbar = () => {
     { name: 'Team', path: '/team' },
     { name: 'Litigation', path: '/litigation' },
     { name: 'Global & CSR', path: '/global-csr' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact', path: '/contact' }
   ];
 
   useEffect(() => {
@@ -302,6 +304,7 @@ const App: React.FC = () => {
             <Route path="/team" element={<Team />} />
             <Route path="/litigation" element={<Litigation />} />
             <Route path="/global-csr" element={<GlobalCSR />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
