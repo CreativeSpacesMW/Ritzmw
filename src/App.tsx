@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { 
-  Menu, X, ChevronRight, Scale, Globe, Building2, Briefcase, 
-  MapPin, Phone, Mail, Clock, ShieldCheck, Zap, TrendingUp, Users 
+  Menu, X, ChevronRight, Globe, 
+  MapPin, Clock
 } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -38,10 +39,8 @@ const Navbar = () => {
 
   useEffect(() => {
     // Automatically close mobile menu on route change
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsOpen(false);
-    if (isOpen) {
-      document.body.style.overflow = 'unset';
-    }
   }, [location.pathname]);
 
   // Handle body scroll locking when mobile menu is open
@@ -165,11 +164,30 @@ const Navbar = () => {
 };
 
 const Footer = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.8
+      }
+    })
+  };
+
   return (
     <footer className="bg-slate-950 text-slate-400 py-16 md:py-24 border-t border-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-          <div className="col-span-1">
+          <motion.div 
+            className="col-span-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            custom={0}
+            variants={containerVariants}
+          >
              <div className="flex items-center space-x-2 mb-8">
               <div className="w-8 h-8 border border-ritz-gold flex items-center justify-center transform rotate-45">
                 <span className="text-ritz-gold font-serif font-bold text-lg -rotate-45">R</span>
@@ -186,9 +204,15 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
           
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            custom={1}
+            variants={containerVariants}
+          >
             <h4 className="text-white font-black mb-8 text-[10px] uppercase tracking-[0.3em]">Offices</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-3">
@@ -200,9 +224,15 @@ const Footer = () => {
                 <span>Mon-Fri: 08:00 - 17:00</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            custom={2}
+            variants={containerVariants}
+          >
             <h4 className="text-white font-black mb-8 text-[10px] uppercase tracking-[0.3em]">Alliance</h4>
             <div className="bg-slate-900/40 p-5 border border-slate-800 rounded-sm">
               <Globe size={20} className="text-ritz-gold mb-3" />
@@ -210,9 +240,15 @@ const Footer = () => {
                 Exclusive Malawian member of <span className="text-white font-bold">Alliott Global Alliance</span>. Delivering cross-border solutions through 220+ member firms.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            custom={3}
+            variants={containerVariants}
+          >
             <h4 className="text-white font-black mb-8 text-[10px] uppercase tracking-[0.3em]">Briefing</h4>
             <form className="flex group" onSubmit={(e) => e.preventDefault()}>
               <input 
@@ -224,17 +260,23 @@ const Footer = () => {
                 <ChevronRight size={18} />
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
         
-        <div className="border-t border-slate-900 mt-16 pt-10 flex flex-col md:flex-row justify-between items-center text-[9px] font-black uppercase tracking-[0.2em] gap-6 text-center md:text-left">
+        <motion.div 
+          className="border-t border-slate-900 mt-16 pt-10 flex flex-col md:flex-row justify-between items-center text-[9px] font-black uppercase tracking-[0.2em] gap-6 text-center md:text-left"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
           <p className="text-slate-600">&copy; {new Date().getFullYear()} Ritz Attorneys at Law. All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center space-x-6">
             <a href="#" className="hover:text-ritz-gold transition-colors">Privacy</a>
             <a href="#" className="hover:text-ritz-gold transition-colors">Terms</a>
             <a href="#" className="hover:text-ritz-gold transition-colors">Compliance</a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
