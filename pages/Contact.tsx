@@ -1,6 +1,16 @@
 
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, Laptop } from 'lucide-react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+
+// Fix for Leaflet default icon issues in React
+const ritzMarkerIcon = L.icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -40,8 +50,27 @@ const Contact: React.FC = () => {
               </h3>
               <div className="space-y-6">
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-1">Location</div>
-                  <p className="text-sm md:text-base text-slate-700">Western Wing, Keza Office Park<br />Blantyre, Malawi</p>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-3">Location</div>
+                  <div className="h-64 w-full rounded-sm overflow-hidden border border-slate-200 mb-4 z-0">
+                    <MapContainer 
+                      center={[-15.8047, 35.0355]} 
+                      zoom={16} 
+                      scrollWheelZoom={false} 
+                      className="h-full w-full"
+                    >
+                      <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+                      <Marker position={[-15.8047, 35.0355]} icon={ritzMarkerIcon}>
+                        <Popup>
+                          <div className="font-serif font-bold text-slate-900">Ritz Attorneys at Law</div>
+                          <div className="text-xs text-slate-600">Western Wing, Keza Office Park, Blantyre</div>
+                        </Popup>
+                      </Marker>
+                    </MapContainer>
+                  </div>
+                  <p className="text-sm text-slate-500 italic">Western Wing, Keza Office Park, Chichiri, Blantyre</p>
                 </div>
                 <div>
                   <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-1">Business Hours</div>
