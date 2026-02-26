@@ -8,11 +8,9 @@ import {
 } from 'lucide-react';
 import Home from './views/HomeContent';
 import About from './views/AboutContent';
-import PracticeAreas from './views/PracticeAreasContent';
 import Team from './views/TeamContent';
 import Litigation from './views/LitigationContent';
 import GlobalCSR from './views/GlobalCSRContent';
-import Contact from './views/ContactContent';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
