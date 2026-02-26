@@ -6,13 +6,13 @@ import {
   Menu, X, ChevronRight, Globe, 
   MapPin, Clock
 } from 'lucide-react';
-import Home from './views/HomeView';
-import About from './views/AboutView';
-import PracticeAreas from './views/PracticeAreasView';
-import Team from './views/TeamView';
-import Litigation from './views/LitigationView';
-import GlobalCSR from './views/GlobalCSRView';
-import Contact from './views/ContactView';
+import Home from './views/HomeContent';
+import About from './views/AboutContent';
+import PracticeAreas from './views/PracticeAreasContent';
+import Team from './views/TeamContent';
+import Litigation from './views/LitigationContent';
+import GlobalCSR from './views/GlobalCSRContent';
+import Contact from './views/ContactContent';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
